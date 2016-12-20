@@ -1,8 +1,8 @@
-package com.acromancer.game.test
+package com.acromancer.acromancer.test
 
 import akka.http.scaladsl.testkit.{RouteTestTimeout, ScalatestRouteTest}
-import com.acromancer.game.common.api.JsonSupport
-import com.acromancer.game.user.application.Session
+import com.acromancer.acromancer.common.api.JsonSupport
+import com.acromancer.acromancer.user.application.Session
 import com.softwaremill.session.{SessionConfig, SessionManager}
 import com.typesafe.config.ConfigFactory
 import org.scalatest.Matchers

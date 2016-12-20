@@ -1,9 +1,9 @@
-package com.acromancer.game.user.application
+package com.acromancer.acromancer.user.application
 
 import java.util.UUID
 
-import com.acromancer.game.test.{FlatSpecWithDb, TestHelpers}
-import com.acromancer.game.user.domain.User
+import com.acromancer.acromancer.test.{FlatSpecWithDb, TestHelpers}
+import com.acromancer.acromancer.user.domain.User
 import com.typesafe.scalalogging.StrictLogging
 import org.scalatest.Matchers
 

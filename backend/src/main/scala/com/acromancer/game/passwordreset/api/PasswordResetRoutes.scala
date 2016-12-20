@@ -1,10 +1,10 @@
-package com.acromancer.game.passwordreset.api
+package com.acromancer.acromancer.passwordreset.api
 
 import akka.http.scaladsl.model.StatusCodes
 import akka.http.scaladsl.server.Directives._
-import com.acromancer.game.common.api.RoutesSupport
-import com.acromancer.game.passwordreset.application.PasswordResetService
-import com.acromancer.game.user.api.SessionSupport
+import com.acromancer.acromancer.common.api.RoutesSupport
+import com.acromancer.acromancer.passwordreset.application.PasswordResetService
+import com.acromancer.acromancer.user.api.SessionSupport
 import io.circe.generic.auto._
 
 trait PasswordResetRoutes extends RoutesSupport with SessionSupport {

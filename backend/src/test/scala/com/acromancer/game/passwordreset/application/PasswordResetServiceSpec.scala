@@ -1,12 +1,12 @@
-package com.acromancer.game.passwordreset.application
+package com.acromancer.acromancer.passwordreset.application
 
 import java.time.temporal.ChronoUnit
 import java.time.{Instant, ZoneOffset}
 import java.util.UUID
 
-import com.acromancer.game.passwordreset.domain.PasswordResetCode
-import com.acromancer.game.test.{FlatSpecWithDb, TestHelpersWithDb}
-import com.acromancer.game.user.domain.User
+import com.acromancer.acromancer.passwordreset.domain.PasswordResetCode
+import com.acromancer.acromancer.test.{FlatSpecWithDb, TestHelpersWithDb}
+import com.acromancer.acromancer.user.domain.User
 import com.typesafe.config.ConfigFactory
 
 class PasswordResetServiceSpec extends FlatSpecWithDb with TestHelpersWithDb {

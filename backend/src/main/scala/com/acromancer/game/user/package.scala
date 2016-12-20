@@ -1,4 +1,4 @@
-package com.acromancer.game
+package com.acromancer.acromancer
 
 import java.util.UUID
 package object user {

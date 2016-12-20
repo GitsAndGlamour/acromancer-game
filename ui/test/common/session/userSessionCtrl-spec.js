@@ -2,7 +2,7 @@
 
 describe('User Session Controller', function () {
 
-    beforeEach(angular.mock.module('smlGame.common'));
+    beforeEach(angular.mock.module('smlAcromancer.common'));
 
     var userSessionService;
 

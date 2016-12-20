@@ -1,10 +1,10 @@
-package com.acromancer.game
+package com.acromancer.acromancer
 
 import akka.actor.ActorSystem
-import com.acromancer.game.common.sql.{DatabaseConfig, SqlDatabase}
-import com.acromancer.game.email.application.{DummyEmailService, EmailConfig, EmailTemplatingEngine, SmtpEmailService}
-import com.acromancer.game.passwordreset.application.{PasswordResetCodeDao, PasswordResetConfig, PasswordResetService}
-import com.acromancer.game.user.application.{RefreshTokenStorageImpl, RememberMeTokenDao, UserDao, UserService}
+import com.acromancer.acromancer.common.sql.{DatabaseConfig, SqlDatabase}
+import com.acromancer.acromancer.email.application.{DummyEmailService, EmailConfig, EmailTemplatingEngine, SmtpEmailService}
+import com.acromancer.acromancer.passwordreset.application.{PasswordResetCodeDao, PasswordResetConfig, PasswordResetService}
+import com.acromancer.acromancer.user.application.{RefreshTokenStorageImpl, RememberMeTokenDao, UserDao, UserService}
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.StrictLogging
 

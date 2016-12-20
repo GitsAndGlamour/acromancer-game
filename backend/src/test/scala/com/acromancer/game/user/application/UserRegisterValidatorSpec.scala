@@ -1,4 +1,4 @@
-package com.acromancer.game.user.application
+package com.acromancer.acromancer.user.application
 
 import org.scalatest.{FlatSpec, Matchers}
 

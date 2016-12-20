@@ -1,4 +1,4 @@
-package com.acromancer.game
+package com.acromancer.acromancer
 
 import com.typesafe.config.Config
 

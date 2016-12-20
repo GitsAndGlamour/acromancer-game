@@ -1,4 +1,4 @@
-package com.acromancer.game.email.application
+package com.acromancer.acromancer.email.application
 
 import com.typesafe.config.Config
 

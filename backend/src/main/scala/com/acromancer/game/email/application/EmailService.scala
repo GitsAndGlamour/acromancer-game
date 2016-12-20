@@ -1,6 +1,6 @@
-package com.acromancer.game.email.application
+package com.acromancer.acromancer.email.application
 
-import com.acromancer.game.email.domain.EmailContentWithSubject
+import com.acromancer.acromancer.email.domain.EmailContentWithSubject
 
 import scala.concurrent.Future
 

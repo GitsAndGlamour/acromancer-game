@@ -1,3 +1,3 @@
-package com.acromancer.game.email.domain
+package com.acromancer.acromancer.email.domain
 
 case class EmailContentWithSubject(content: String, subject: String)

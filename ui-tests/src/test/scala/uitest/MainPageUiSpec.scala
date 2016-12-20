@@ -1,6 +1,6 @@
 package uitest
 
-import com.acromancer.game.version.BuildInfo._
+import com.acromancer.acromancer.version.BuildInfo._
 
 class MainPageUiSpec extends BaseUiSpec {
 

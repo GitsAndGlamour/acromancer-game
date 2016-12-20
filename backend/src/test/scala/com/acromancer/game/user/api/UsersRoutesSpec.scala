@@ -1,9 +1,9 @@
-package com.acromancer.game.user.api
+package com.acromancer.acromancer.user.api
 
 import akka.http.scaladsl.model.StatusCodes
 import akka.http.scaladsl.model.headers.{Cookie, `Set-Cookie`}
 import akka.http.scaladsl.server.Route
-import com.acromancer.game.test.{BaseRoutesSpec, TestHelpersWithDb}
+import com.acromancer.acromancer.test.{BaseRoutesSpec, TestHelpersWithDb}
 
 class UsersRoutesSpec extends BaseRoutesSpec with TestHelpersWithDb { spec =>
 

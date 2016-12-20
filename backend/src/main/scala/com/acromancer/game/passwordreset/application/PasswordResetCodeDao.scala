@@ -1,13 +1,13 @@
-package com.acromancer.game.passwordreset.application
+package com.acromancer.acromancer.passwordreset.application
 
 import java.time.OffsetDateTime
 import java.util.UUID
 
-import com.acromancer.game.common.FutureHelpers._
-import com.acromancer.game.common.sql.SqlDatabase
-import com.acromancer.game.passwordreset.domain.PasswordResetCode
-import com.acromancer.game.user.application.SqlUserSchema
-import com.acromancer.game.user.domain.User
+import com.acromancer.acromancer.common.FutureHelpers._
+import com.acromancer.acromancer.common.sql.SqlDatabase
+import com.acromancer.acromancer.passwordreset.domain.PasswordResetCode
+import com.acromancer.acromancer.user.application.SqlUserSchema
+import com.acromancer.acromancer.user.domain.User
 
 import scala.concurrent.{ExecutionContext, Future}
 import scala.language.implicitConversions

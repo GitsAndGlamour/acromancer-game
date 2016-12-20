@@ -1,13 +1,13 @@
-package com.acromancer.game.passwordreset.application
+package com.acromancer.acromancer.passwordreset.application
 
 import java.time.Instant
 
-import com.acromancer.game.common.Utils
-import com.acromancer.game.email.application.{EmailService, EmailTemplatingEngine}
-import com.acromancer.game.email.domain.EmailContentWithSubject
-import com.acromancer.game.passwordreset.domain.PasswordResetCode
-import com.acromancer.game.user.application.UserDao
-import com.acromancer.game.user.domain.User
+import com.acromancer.acromancer.common.Utils
+import com.acromancer.acromancer.email.application.{EmailService, EmailTemplatingEngine}
+import com.acromancer.acromancer.email.domain.EmailContentWithSubject
+import com.acromancer.acromancer.passwordreset.domain.PasswordResetCode
+import com.acromancer.acromancer.user.application.UserDao
+import com.acromancer.acromancer.user.domain.User
 import com.typesafe.scalalogging.StrictLogging
 
 import scala.concurrent.{ExecutionContext, Future}

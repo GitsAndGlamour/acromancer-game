@@ -1,4 +1,4 @@
-package com.acromancer.game.common
+package com.acromancer.acromancer.common
 
 import scala.concurrent.{ExecutionContext, Future}
 

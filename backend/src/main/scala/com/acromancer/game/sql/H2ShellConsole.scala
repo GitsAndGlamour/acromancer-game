@@ -1,6 +1,6 @@
-package com.acromancer.game.sql
+package com.acromancer.acromancer.sql
 
-import com.acromancer.game.common.sql.{DatabaseConfig, SqlDatabase}
+import com.acromancer.acromancer.common.sql.{DatabaseConfig, SqlDatabase}
 import com.typesafe.config.ConfigFactory
 
 object H2ShellConsole extends App {

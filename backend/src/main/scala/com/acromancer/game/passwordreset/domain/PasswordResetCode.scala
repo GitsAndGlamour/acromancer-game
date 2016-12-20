@@ -1,10 +1,10 @@
-package com.acromancer.game.passwordreset.domain
+package com.acromancer.acromancer.passwordreset.domain
 
 import java.time.temporal.ChronoUnit
 import java.time.{Instant, OffsetDateTime, ZoneOffset}
 import java.util.UUID
 
-import com.acromancer.game.user.domain.User
+import com.acromancer.acromancer.user.domain.User
 
 /**
  * Code used in the process of password reset.

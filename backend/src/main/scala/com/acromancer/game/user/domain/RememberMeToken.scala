@@ -1,4 +1,4 @@
-package com.acromancer.game.user.domain
+package com.acromancer.acromancer.user.domain
 
 import java.time.OffsetDateTime
 import java.util.UUID

@@ -1,11 +1,11 @@
-package com.acromancer.game.passwordreset.api
+package com.acromancer.acromancer.passwordreset.api
 
 import akka.http.scaladsl.model.StatusCodes
 import akka.http.scaladsl.server.Route
-import com.acromancer.game.passwordreset.application.{PasswordResetCodeDao, PasswordResetConfig, PasswordResetService}
-import com.acromancer.game.passwordreset.domain.PasswordResetCode
-import com.acromancer.game.test.{BaseRoutesSpec, TestHelpersWithDb}
-import com.acromancer.game.user.domain.User
+import com.acromancer.acromancer.passwordreset.application.{PasswordResetCodeDao, PasswordResetConfig, PasswordResetService}
+import com.acromancer.acromancer.passwordreset.domain.PasswordResetCode
+import com.acromancer.acromancer.test.{BaseRoutesSpec, TestHelpersWithDb}
+import com.acromancer.acromancer.user.domain.User
 import com.typesafe.config.ConfigFactory
 
 class PasswordResetRoutesSpec extends BaseRoutesSpec with TestHelpersWithDb { spec =>

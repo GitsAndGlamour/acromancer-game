@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Version Controller', () => {
-  beforeEach(angular.mock.module('smlGame.common'));
+  beforeEach(angular.mock.module('smlAcromancer.common'));
 
   let scope, $httpBackend;
 

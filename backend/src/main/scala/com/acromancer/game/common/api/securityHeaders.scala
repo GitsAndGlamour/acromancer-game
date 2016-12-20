@@ -1,4 +1,4 @@
-package com.acromancer.game.common.api
+package com.acromancer.acromancer.common.api
 
 import akka.http.scaladsl.model.headers.{ModeledCustomHeader, ModeledCustomHeaderCompanion}
 
