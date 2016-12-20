@@ -1,6 +1,6 @@
 package uitest
 
-import com.softwaremill.bootzooka.common.Utils
+import com.acromancer.game.common.Utils
 import org.scalatest.BeforeAndAfterEach
 import uitest.pages.RegistrationPage
 
@@ -10,7 +10,7 @@ class RegisterUiSpec extends BaseUiSpec with BeforeAndAfterEach {
   val Email = Login + "@example.org"
   val Password = "test"
 
-  final val EmailSubject = s"SoftwareMill Bootzooka - registration confirmation for user $Login"
+  final val EmailSubject = s"SoftwareMill Game - registration confirmation for user $Login"
 
   override protected def beforeEach(): Unit = {
     super.beforeEach()

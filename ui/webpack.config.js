@@ -11,7 +11,7 @@ var config = {
   },
   output: {
     path: __dirname + '/app',
-    filename: 'bootzooka.bundle.js'
+    filename: 'game.bundle.js'
   },
   plugins: [
     new ExtractTextPlugin('styles.css'),

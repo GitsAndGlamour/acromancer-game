@@ -4,7 +4,7 @@ describe('Truncate filter', function () {
 
     var loremIpsum = 'Lorem ipsum dolor sit amet';
 
-    beforeEach(angular.mock.module('smlBootzooka.common'));
+    beforeEach(angular.mock.module('smlGame.common'));
 
     it('should truncate string', angular.mock.inject(function (truncateFilter) {
         expect(truncateFilter(loremIpsum)).toBe('Lorem i...');

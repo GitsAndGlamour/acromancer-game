@@ -92,7 +92,7 @@ def haltOnCmdResultError(result: Int) {
 lazy val rootProject = (project in file("."))
   .settings(commonSettings: _*)
   .settings(
-    name := "bootzooka",
+    name := "game",
     herokuFatJar in Compile := Some((assemblyOutputPath in backend in assembly).value),
     deployHeroku in Compile := ((deployHeroku in Compile) dependsOn (assembly in backend)).value
   )
@@ -104,7 +104,7 @@ lazy val backend: Project = (project in file("backend"))
   .settings(Revolver.settings)
   .settings(
     libraryDependencies ++= slickStack ++ akkaStack ++ circe ++ Seq(javaxMailSun, typesafeConfig),
-    buildInfoPackage := "com.softwaremill.bootzooka.version",
+    buildInfoPackage := "com.acromancer.game.version",
     buildInfoObject := "BuildInfo",
     buildInfoKeys := Seq[BuildInfoKey](
       BuildInfoKey.action("buildDate")(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date())),
@@ -116,12 +116,12 @@ lazy val backend: Project = (project in file("backend"))
 
       compilationResult
     },
-    mainClass in Compile := Some("com.softwaremill.bootzooka.Main"),
+    mainClass in Compile := Some("com.acromancer.game.Main"),
     // We need to include the whole webapp, hence replacing the resource directory
     unmanagedResourceDirectories in Compile := {
       (unmanagedResourceDirectories in Compile).value ++ List(baseDirectory.value.getParentFile / ui.base.getName / "dist")
     },
-    assemblyJarName in assembly := "bootzooka.jar",
+    assemblyJarName in assembly := "game.jar",
     assembly := assembly.dependsOn(npmTask.toTask(" run build")).value
   )
 

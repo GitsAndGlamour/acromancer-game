@@ -2,7 +2,7 @@
 
 describe('Login Controller', function () {
 
-    beforeEach(angular.mock.module('smlBootzooka.profile'));
+    beforeEach(angular.mock.module('smlGame.profile'));
 
     afterEach(angular.mock.inject(function (_$httpBackend_) {
         _$httpBackend_.verifyNoOutstandingExpectation();
