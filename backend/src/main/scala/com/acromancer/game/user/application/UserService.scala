@@ -1,12 +1,12 @@
-package com.acromancer.game.user.application
+package com.acromancer.acromancer.user.application
 
 import java.time.{Instant, ZoneOffset}
 import java.util.UUID
 
-import com.acromancer.game.common.Utils
-import com.acromancer.game.email.application.{EmailService, EmailTemplatingEngine}
-import com.acromancer.game.user._
-import com.acromancer.game.user.domain.{BasicUserData, User}
+import com.acromancer.acromancer.common.Utils
+import com.acromancer.acromancer.email.application.{EmailService, EmailTemplatingEngine}
+import com.acromancer.acromancer.user._
+import com.acromancer.acromancer.user.domain.{BasicUserData, User}
 
 import scala.concurrent.{ExecutionContext, Future}
 

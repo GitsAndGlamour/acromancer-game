@@ -1,8 +1,8 @@
-package com.acromancer.game.user.application
+package com.acromancer.acromancer.user.application
 
 import java.util.UUID
 
-import com.acromancer.game.user._
+import com.acromancer.acromancer.user._
 import com.softwaremill.session.{MultiValueSessionSerializer, SessionSerializer}
 
 import scala.util.Try

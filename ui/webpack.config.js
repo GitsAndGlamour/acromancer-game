@@ -11,7 +11,7 @@ var config = {
   },
   output: {
     path: __dirname + '/app',
-    filename: 'game.bundle.js'
+    filename: 'acromancer.bundle.js'
   },
   plugins: [
     new ExtractTextPlugin('styles.css'),

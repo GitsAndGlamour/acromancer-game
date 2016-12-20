@@ -1,4 +1,4 @@
-package com.acromancer.game.common
+package com.acromancer.acromancer.common
 
 import java.util.concurrent.TimeUnit
 

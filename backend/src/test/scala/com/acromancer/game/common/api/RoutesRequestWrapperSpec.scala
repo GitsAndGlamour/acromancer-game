@@ -1,10 +1,10 @@
-package com.acromancer.game.common.api
+package com.acromancer.acromancer.common.api
 
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.testkit.ScalatestRouteTest
-import com.acromancer.game.common.api.`X-Content-Type-Options`.`nosniff`
-import com.acromancer.game.common.api.`X-Frame-Options`.`DENY`
-import com.acromancer.game.common.api.`X-XSS-Protection`.`1; mode=block`
+import com.acromancer.acromancer.common.api.`X-Content-Type-Options`.`nosniff`
+import com.acromancer.acromancer.common.api.`X-Frame-Options`.`DENY`
+import com.acromancer.acromancer.common.api.`X-XSS-Protection`.`1; mode=block`
 import org.scalatest.{FlatSpec, Matchers}
 
 class RoutesRequestWrapperSpec extends FlatSpec with Matchers with ScalatestRouteTest {

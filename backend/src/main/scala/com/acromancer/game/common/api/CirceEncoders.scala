@@ -1,4 +1,4 @@
-package com.acromancer.game.common.api
+package com.acromancer.acromancer.common.api
 
 import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter

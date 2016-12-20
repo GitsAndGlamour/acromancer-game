@@ -1,12 +1,12 @@
-package com.acromancer.game.user.application
+package com.acromancer.acromancer.user.application
 
 import java.time.OffsetDateTime
 import java.util.UUID
 
-import com.acromancer.game.common.FutureHelpers._
-import com.acromancer.game.common.sql.SqlDatabase
-import com.acromancer.game.user._
-import com.acromancer.game.user.domain.{BasicUserData, User}
+import com.acromancer.acromancer.common.FutureHelpers._
+import com.acromancer.acromancer.common.sql.SqlDatabase
+import com.acromancer.acromancer.user._
+import com.acromancer.acromancer.user.domain.{BasicUserData, User}
 
 import scala.concurrent.{ExecutionContext, Future}
 

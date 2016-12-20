@@ -1,9 +1,9 @@
-package com.acromancer.game.test
+package com.acromancer.acromancer.test
 
-import com.acromancer.game.common.sql.SqlDatabase
-import com.acromancer.game.email.application.{DummyEmailService, EmailTemplatingEngine}
-import com.acromancer.game.user.application.{UserDao, UserService}
-import com.acromancer.game.user.domain.User
+import com.acromancer.acromancer.common.sql.SqlDatabase
+import com.acromancer.acromancer.email.application.{DummyEmailService, EmailTemplatingEngine}
+import com.acromancer.acromancer.user.application.{UserDao, UserService}
+import com.acromancer.acromancer.user.domain.User
 import org.scalatest.concurrent.ScalaFutures
 
 import scala.concurrent.ExecutionContext

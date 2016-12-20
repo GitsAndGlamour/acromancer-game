@@ -1,9 +1,9 @@
-package com.acromancer.game.user.application
+package com.acromancer.acromancer.user.application
 
 import java.util.UUID
 
-import com.acromancer.game.test.{FlatSpecWithDb, TestHelpersWithDb}
-import com.acromancer.game.user.domain.User
+import com.acromancer.acromancer.test.{FlatSpecWithDb, TestHelpersWithDb}
+import com.acromancer.acromancer.user.domain.User
 import org.scalatest.Matchers
 
 class UserServiceSpec extends FlatSpecWithDb with Matchers with TestHelpersWithDb {

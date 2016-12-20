@@ -1,4 +1,4 @@
-package com.acromancer.game
+package com.acromancer.acromancer
 
 import java.util.Locale
 
@@ -6,7 +6,7 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.Http.ServerBinding
 import akka.stream.ActorMaterializer
-import com.acromancer.game.user.application.Session
+import com.acromancer.acromancer.user.application.Session
 import com.softwaremill.session.{SessionConfig, SessionManager}
 import com.typesafe.scalalogging.StrictLogging
 

@@ -1,12 +1,12 @@
-package com.acromancer.game.user.api
+package com.acromancer.acromancer.user.api
 
 import akka.http.scaladsl.model.StatusCodes
 import akka.http.scaladsl.server.AuthorizationFailedRejection
 import akka.http.scaladsl.server.Directives._
-import com.acromancer.game.common.Utils
-import com.acromancer.game.common.api.RoutesSupport
-import com.acromancer.game.user.application.{Session, UserRegisterResult, UserService}
-import com.acromancer.game.user.domain.BasicUserData
+import com.acromancer.acromancer.common.Utils
+import com.acromancer.acromancer.common.api.RoutesSupport
+import com.acromancer.acromancer.user.application.{Session, UserRegisterResult, UserService}
+import com.acromancer.acromancer.user.domain.BasicUserData
 import com.softwaremill.session.SessionDirectives._
 import com.softwaremill.session.SessionOptions._
 import com.typesafe.scalalogging.StrictLogging

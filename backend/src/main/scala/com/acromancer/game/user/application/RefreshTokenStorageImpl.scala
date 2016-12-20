@@ -1,11 +1,11 @@
-package com.acromancer.game.user.application
+package com.acromancer.acromancer.user.application
 
 import java.time.{Instant, ZoneOffset}
 import java.util.UUID
 import java.util.concurrent.TimeUnit
 
 import akka.actor.ActorSystem
-import com.acromancer.game.user.domain.RememberMeToken
+import com.acromancer.acromancer.user.domain.RememberMeToken
 import com.softwaremill.session.{RefreshTokenData, RefreshTokenLookupResult, RefreshTokenStorage}
 
 import scala.concurrent.duration.{Duration, FiniteDuration}

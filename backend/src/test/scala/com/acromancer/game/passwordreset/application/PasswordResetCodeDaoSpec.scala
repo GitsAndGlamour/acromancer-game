@@ -1,7 +1,7 @@
-package com.acromancer.game.passwordreset.application
+package com.acromancer.acromancer.passwordreset.application
 
-import com.acromancer.game.passwordreset.domain.PasswordResetCode
-import com.acromancer.game.test.{FlatSpecWithDb, TestHelpersWithDb}
+import com.acromancer.acromancer.passwordreset.domain.PasswordResetCode
+import com.acromancer.acromancer.test.{FlatSpecWithDb, TestHelpersWithDb}
 
 class PasswordResetCodeDaoSpec extends FlatSpecWithDb with TestHelpersWithDb {
   behavior of "PasswordResetCodeDao"

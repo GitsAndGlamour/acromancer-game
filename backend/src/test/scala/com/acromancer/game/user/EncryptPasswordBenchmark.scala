@@ -1,7 +1,7 @@
-package com.acromancer.game.user
+package com.acromancer.acromancer.user
 
-import com.acromancer.game.common.Utils
-import com.acromancer.game.user.domain.User
+import com.acromancer.acromancer.common.Utils
+import com.acromancer.acromancer.user.domain.User
 
 // Run this locally to determine the desired number of iterations in PBKDF2
 object EncryptPasswordBenchmark extends App {

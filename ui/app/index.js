@@ -11,22 +11,22 @@ import profile from './component/profile';
 import bsTracker from './component/directives/bsHttpRequestTracker';
 import homeComponent from './component/home';
 
-const commonModule = angular.module('smlGame.common', [ngCookies]);
+const commonModule = angular.module('smlAcromancer.common', [ngCookies]);
 common(commonModule);
 
-const profileModule = angular.module('smlGame.profile', [uirouter, ngResource, ngCookies, 'smlGame.common']);
+const profileModule = angular.module('smlAcromancer.profile', [uirouter, ngResource, ngCookies, 'smlAcromancer.common']);
 profile(profileModule);
 
-const bsTrackerModule = angular.module('smlGame.bsTracker', []);
+const bsTrackerModule = angular.module('smlAcromancer.bsTracker', []);
 bsTracker(bsTrackerModule);
 
-const homeModule = angular.module('smlGame.home', [uirouter]);
+const homeModule = angular.module('smlAcromancer.home', [uirouter]);
 homeComponent(homeModule);
 
-require('./component/main')(angular.module('smlGame.main', [uirouter]));
+require('./component/main')(angular.module('smlAcromancer.main', [uirouter]));
 
-const ngModule = angular.module('smlGame',
-    [uirouter, sanitize, 'smlGame.common', 'smlGame.profile', 'smlGame.bsTracker', 'smlGame.home', 'smlGame.main'])
+const ngModule = angular.module('smlAcromancer',
+    [uirouter, sanitize, 'smlAcromancer.common', 'smlAcromancer.profile', 'smlAcromancer.bsTracker', 'smlAcromancer.home', 'smlAcromancer.main'])
   .config(routing)
   .config(intercept)
   .run(stateChangeStart)

@@ -1,8 +1,8 @@
-package com.acromancer.game.test
+package com.acromancer.acromancer.test
 
 import java.time.{OffsetDateTime, ZoneOffset}
 
-import com.acromancer.game.user.domain.User
+import com.acromancer.acromancer.user.domain.User
 
 trait TestHelpers {
 

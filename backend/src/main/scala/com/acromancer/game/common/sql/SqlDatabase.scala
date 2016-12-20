@@ -1,9 +1,9 @@
-package com.acromancer.game.common.sql
+package com.acromancer.acromancer.common.sql
 
 import java.net.URI
 import java.time.{OffsetDateTime, ZoneOffset}
 
-import com.acromancer.game.common.sql.DatabaseConfig._
+import com.acromancer.acromancer.common.sql.DatabaseConfig._
 import com.typesafe.config.ConfigValueFactory._
 import com.typesafe.config.{Config, ConfigFactory}
 import com.typesafe.scalalogging.StrictLogging
@@ -92,12 +92,12 @@ object SqlDatabase extends StrictLogging {
   }
 
   def createPostgresFromConfig(config: DatabaseConfig) = {
-    val db = Database.forConfig("game.db.postgres", config.rootConfig)
+    val db = Database.forConfig("acromancer.db.postgres", config.rootConfig)
     SqlDatabase(db, slick.driver.PostgresDriver, postgresConnectionString(config))
   }
 
   private def createEmbedded(config: DatabaseConfig): SqlDatabase = {
-    val db = Database.forConfig("game.db.h2")
+    val db = Database.forConfig("acromancer.db.h2")
     SqlDatabase(db, slick.driver.H2Driver, JdbcConnectionString(embeddedConnectionStringFromConfig(config)))
   }
 

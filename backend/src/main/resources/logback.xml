@@ -14,7 +14,7 @@
     <appender-ref ref="STDOUT" />
   </appender>
 
-  <logger name="com.acromancer.game" level="DEBUG" additivity="false">
+  <logger name="com.acromancer.acromancer" level="DEBUG" additivity="false">
     <appender-ref ref="ASYNC" />
   </logger>
 

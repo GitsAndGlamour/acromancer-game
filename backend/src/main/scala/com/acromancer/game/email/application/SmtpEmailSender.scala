@@ -1,4 +1,4 @@
-package com.acromancer.game.email.application
+package com.acromancer.acromancer.email.application
 
 import java.io.{ByteArrayInputStream, ByteArrayOutputStream}
 import java.util.{Date, Properties}

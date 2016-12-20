@@ -1,4 +1,4 @@
-package com.acromancer.game.email.application
+package com.acromancer.acromancer.email.application
 
 import org.scalatest.{FlatSpec, Matchers}
 
@@ -31,7 +31,7 @@ class EmailTemplatingEngineSpec extends FlatSpec with Matchers {
     val email = engine.registrationConfirmation("adamw")
 
     // then
-    email.subject should be ("SoftwareMill Game - registration confirmation for user adamw")
+    email.subject should be ("SoftwareMill Acromancer - registration confirmation for user adamw")
     email.content should include ("Dear adamw,")
     email.content should include ("Regards,")
   }

@@ -1,12 +1,12 @@
-package com.acromancer.game.user.domain
+package com.acromancer.acromancer.user.domain
 
 import java.time.OffsetDateTime
 import java.util.UUID
 import javax.crypto.SecretKeyFactory
 import javax.crypto.spec.PBEKeySpec
 
-import com.acromancer.game.common.Utils
-import com.acromancer.game.user._
+import com.acromancer.acromancer.common.Utils
+import com.acromancer.acromancer.user._
 
 case class User(
   id: UserId,

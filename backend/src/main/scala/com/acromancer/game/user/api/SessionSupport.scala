@@ -1,10 +1,10 @@
-package com.acromancer.game.user.api
+package com.acromancer.acromancer.user.api
 
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server._
-import com.acromancer.game.user.application.{Session, UserService}
-import com.acromancer.game.user.domain.BasicUserData
-import com.acromancer.game.user.UserId
+import com.acromancer.acromancer.user.application.{Session, UserService}
+import com.acromancer.acromancer.user.domain.BasicUserData
+import com.acromancer.acromancer.user.UserId
 import com.softwaremill.session.SessionDirectives._
 import com.softwaremill.session.SessionOptions._
 import com.softwaremill.session.{RefreshTokenStorage, SessionManager}

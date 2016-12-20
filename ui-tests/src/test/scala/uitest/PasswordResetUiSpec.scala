@@ -1,6 +1,6 @@
 package uitest
 
-import com.acromancer.game.passwordreset.domain.PasswordResetCode
+import com.acromancer.acromancer.passwordreset.domain.PasswordResetCode
 
 class PasswordResetUiSpec extends BaseUiSpec {
 
