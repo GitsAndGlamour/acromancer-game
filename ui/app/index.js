@@ -11,22 +11,22 @@ import profile from './component/profile';
 import bsTracker from './component/directives/bsHttpRequestTracker';
 import homeComponent from './component/home';
 
-const commonModule = angular.module('smlBootzooka.common', [ngCookies]);
+const commonModule = angular.module('smlGame.common', [ngCookies]);
 common(commonModule);
 
-const profileModule = angular.module('smlBootzooka.profile', [uirouter, ngResource, ngCookies, 'smlBootzooka.common']);
+const profileModule = angular.module('smlGame.profile', [uirouter, ngResource, ngCookies, 'smlGame.common']);
 profile(profileModule);
 
-const bsTrackerModule = angular.module('smlBootzooka.bsTracker', []);
+const bsTrackerModule = angular.module('smlGame.bsTracker', []);
 bsTracker(bsTrackerModule);
 
-const homeModule = angular.module('smlBootzooka.home', [uirouter]);
+const homeModule = angular.module('smlGame.home', [uirouter]);
 homeComponent(homeModule);
 
-require('./component/main')(angular.module('smlBootzooka.main', [uirouter]));
+require('./component/main')(angular.module('smlGame.main', [uirouter]));
 
-const ngModule = angular.module('smlBootzooka',
-    [uirouter, sanitize, 'smlBootzooka.common', 'smlBootzooka.profile', 'smlBootzooka.bsTracker', 'smlBootzooka.home', 'smlBootzooka.main'])
+const ngModule = angular.module('smlGame',
+    [uirouter, sanitize, 'smlGame.common', 'smlGame.profile', 'smlGame.bsTracker', 'smlGame.home', 'smlGame.main'])
   .config(routing)
   .config(intercept)
   .run(stateChangeStart)

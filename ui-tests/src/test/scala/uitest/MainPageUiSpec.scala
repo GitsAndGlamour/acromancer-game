@@ -1,6 +1,6 @@
 package uitest
 
-import com.softwaremill.bootzooka.version.BuildInfo._
+import com.acromancer.game.version.BuildInfo._
 
 class MainPageUiSpec extends BaseUiSpec {
 

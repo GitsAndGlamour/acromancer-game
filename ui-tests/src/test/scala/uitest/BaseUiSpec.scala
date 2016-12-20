@@ -3,10 +3,10 @@ package uitest
 import java.util.concurrent.TimeUnit
 
 import akka.http.scaladsl.Http.ServerBinding
-import com.softwaremill.bootzooka.email.application.DummyEmailService
-import com.softwaremill.bootzooka.passwordreset.application.SqlPasswordResetCodeSchema
-import com.softwaremill.bootzooka.user.application.SqlUserSchema
-import com.softwaremill.bootzooka.{DependencyWiring, Main}
+import com.acromancer.game.email.application.DummyEmailService
+import com.acromancer.game.passwordreset.application.SqlPasswordResetCodeSchema
+import com.acromancer.game.user.application.SqlUserSchema
+import com.acromancer.game.{DependencyWiring, Main}
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.support.PageFactory
 import org.scalatest.concurrent.ScalaFutures

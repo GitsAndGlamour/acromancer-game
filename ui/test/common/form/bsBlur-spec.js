@@ -2,7 +2,7 @@ describe('Blur directive', function () {
 
   var scope, form, elm, $httpBackend;
 
-  beforeEach(angular.mock.module('smlBootzooka.common'));
+  beforeEach(angular.mock.module('smlGame.common'));
 
   beforeEach(angular.mock.inject(function ($rootScope, $compile) {
     elm = angular.element(
