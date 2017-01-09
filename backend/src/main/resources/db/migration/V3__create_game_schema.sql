@@ -1,6 +1,6 @@
 -- ACRONYMS
 CREATE TABLE "acronyms"(
-  "id" INT NOT NULL AUTO_INCREMENT,
+  "id" UUID DEFAULT RANDOM_UUID() NOT NULL,
   "acronym" VARCHAR NOT NULL,
   "meaning" VARCHAR NOT NULL
 );
@@ -10,7 +10,7 @@ ALTER TABLE "acronyms" ADD CONSTRAINT "acronyms_id" PRIMARY KEY("id");
 CREATE TABLE "answers"(
   "id" UUID NOT NULL,
   "answer" VARCHAR NOT NULL,
-  "user_id" VARCHAR NOT NULL,
+  "user_id" UUID NOT NULL,
   "votes" INT NOT NULL DEFAULT 0,
   "created_on" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   "updated_on" TIMESTAMP
@@ -20,7 +20,7 @@ ALTER TABLE "answers" ADD CONSTRAINT "answers_id" PRIMARY KEY("id");
 -- ROUNDS
 CREATE TABLE "rounds"(
   "id" UUID NOT NULL,
-  "acronym_id" UUID NOT NULL,
+  "acronym_id" INT NOT NULL,
   "first_answer" UUID NOT NULL,
   "second_answer" UUID NOT NULL,
   "third_answer" UUID NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE "rounds"(
   "fifth_answer" UUID NOT NULL,
   "sixth_answer" UUID NOT NULL,
   "seventh_answer" UUID NOT NULL,
-  "eigth_answer" UUID NOT NULL,
+  "eighth_answer" UUID NOT NULL,
   "created_on" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   "updated_on" TIMESTAMP
 );
@@ -49,8 +49,8 @@ ALTER TABLE "rounds" ADD CONSTRAINT "rounds_sixth_answer_fk"
   FOREIGN KEY("sixth_answer") REFERENCES "answers"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE "rounds" ADD CONSTRAINT "rounds_seventh_answer_fk"
   FOREIGN KEY("seventh_answer") REFERENCES "answers"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE "rounds" ADD CONSTRAINT "rounds_eigth_answer_fk"
-  FOREIGN KEY("eigth_answer") REFERENCES "answers"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "rounds" ADD CONSTRAINT "rounds_eighth_answer_fk"
+  FOREIGN KEY("eighth_answer") REFERENCES "answers"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- GAMES
 CREATE TABLE "games"(
