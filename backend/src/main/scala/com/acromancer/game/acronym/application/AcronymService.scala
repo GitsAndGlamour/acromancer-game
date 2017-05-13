@@ -1,120 +1,87 @@
 package com.acromancer.acromancer.user.application
 
-import java.time.{Instant, ZoneOffset}
 import java.util.UUID
 
-import com.acromancer.acromancer.common.Utils
-import com.acromancer.acromancer.email.application.{EmailService, EmailTemplatingEngine}
-import com.acromancer.acromancer.user._
-import com.acromancer.acromancer.user.domain.{BasicUserData, User}
+import com.acromancer.acromancer.acronym._
+import com.acromancer.acromancer.acronym.application.AcronymDao
+import com.acromancer.acromancer.acronym.domain.{Acronym, BasicAcronymData}
 
 import scala.concurrent.{ExecutionContext, Future}
 
-class UserService(
-    userDao: UserDao,
-    emailService: EmailService,
-    emailTemplatingEngine: EmailTemplatingEngine
-)(implicit ec: ExecutionContext) {
+class AcronymService(acronymDao: AcronymDao)(implicit ec: ExecutionContext) {
 
-  def findById(userId: UserId): Future[Option[BasicUserData]] = {
-    userDao.findBasicDataById(userId)
+  def findById(acronymId: AcronymId): Future[Option[BasicAcronymData]] = {
+    acronymDao.findBasicDataById(acronymId)
   }
 
-  def registerNewUser(login: String, email: String, password: String): Future[UserRegisterResult] = {
-    def checkUserExistence(): Future[Either[String, Unit]] = {
-      val existingLoginFuture = userDao.findByLowerCasedLogin(login)
-      val existingEmailFuture = userDao.findByEmail(email)
+  def createNewAcronym(acronym: String, meaning: String): Future[AcronymCreationResult] = {
+    def checkAcronymExistence(): Future[Either[String, Unit]] = {
+      val existingAcronymFuture = acronymDao.findByAcronym(acronym)
+      val existingMeaningFuture = acronymDao.findByMeaning(meaning)
 
       for {
-        existingLoginOpt <- existingLoginFuture
-        existingEmailOpt <- existingEmailFuture
+        existingAcronymOpt <- existingAcronymFuture
+        existingMeaningOpt <- existingAcronymFuture
       } yield {
-        existingLoginOpt.map(_ => Left("Login already in use!")).orElse(
-          existingEmailOpt.map(_ => Left("E-mail already in use!"))
+        existingAcronymOpt.map(_ => Left("Acronym is already in use!")).orElse(
+          existingMeaningOpt.map(_ => Left("Meaning is already in use!"))
         ).getOrElse(Right((): Unit))
       }
     }
 
-    def registerValidData() = checkUserExistence().flatMap {
-      case Left(msg) => Future.successful(UserRegisterResult.UserExists(msg))
+    def creationValidData() = checkAcronymExistence().flatMap {
+      case Left(msg) => Future.successful(AcronymCreationResult.AcronymExists(msg))
       case Right(_) =>
-        val salt = Utils.randomString(128)
-        val now = Instant.now().atOffset(ZoneOffset.UTC)
-        val userAddResult = userDao.add(User.withRandomUUID(login, email.toLowerCase, password, salt, now))
-        userAddResult.onSuccess {
-          case _ =>
-            val confirmationEmail = emailTemplatingEngine.registrationConfirmation(login)
-            emailService.scheduleEmail(email, confirmationEmail)
-        }
-        userAddResult.map(_ => UserRegisterResult.Success)
+        val acronymAddCreation = acronymDao.add(Acronym.withRandomUUID(acronym.toUpperCase, meaning.toLowerCase))
+        acronymAddCreation.map(_ => AcronymCreationResult.Success)
     }
 
-    UserRegisterValidator.validate(login, email, password).fold(
-      msg => Future.successful(UserRegisterResult.InvalidData(msg)),
-      _ => registerValidData()
+    AcronymCreationValidator.validate(acronym, meaning).fold(
+      msg => Future.successful(AcronymCreationResult.InvalidData(msg)),
+      _ => creationValidData()
     )
   }
 
-  def authenticate(login: String, nonEncryptedPassword: String): Future[Option[BasicUserData]] = {
-    userDao.findByLoginOrEmail(login).map(userOpt =>
-      userOpt.filter(u => User.passwordsMatch(nonEncryptedPassword, u)).map(BasicUserData.fromUser))
-  }
-
-  def changeLogin(userId: UUID, newLogin: String): Future[Either[String, Unit]] = {
-    userDao.findByLowerCasedLogin(newLogin).flatMap {
-      case Some(_) => Future.successful(Left("Login is already taken"))
-      case None => userDao.changeLogin(userId, newLogin).map(Right(_))
+  def changeAcronym(acronymId: UUID, newAcronym: String): Future[Either[String, Unit]] = {
+    acronymDao.findByAcronym(newAcronym).flatMap {
+      case Some(_) => Future.successful(Left("Acronym is already taken"))
+      case None => acronymDao.changeAcronym(acronymId, newAcronym).map(Right(_))
     }
   }
 
-  def changeEmail(userId: UUID, newEmail: String): Future[Either[String, Unit]] = {
-    userDao.findByEmail(newEmail).flatMap {
-      case Some(_) => Future.successful(Left("E-mail used by another user"))
-      case None => userDao.changeEmail(userId, newEmail).map(Right(_))
-    }
-  }
-
-  def changePassword(userId: UUID, currentPassword: String, newPassword: String): Future[Either[String, Unit]] = {
-    userDao.findById(userId).flatMap {
-      case Some(u) => if (User.passwordsMatch(currentPassword, u)) {
-        userDao.changePassword(u.id, User.encryptPassword(newPassword, u.salt)).map(Right(_))
-      }
-      else Future.successful(Left("Current password is invalid"))
-
-      case None => Future.successful(Left("User not found hence cannot change password"))
+  def changeMeaning(acronymId: UUID, newMeaning: String): Future[Either[String, Unit]] = {
+    acronymDao.findByMeaning(newMeaning).flatMap {
+      case Some(_) => Future.successful(Left("Meaning used by another acronym"))
+      case None => acronymDao.changeMeaning(acronymId, newMeaning).map(Right(_))
     }
   }
 }
 
-sealed trait UserRegisterResult
+sealed trait AcronymCreationResult
 
-object UserRegisterResult {
+object AcronymCreationResult {
 
-  case class InvalidData(msg: String) extends UserRegisterResult
+  case class InvalidData(msg: String) extends AcronymCreationResult
 
-  case class UserExists(msg: String) extends UserRegisterResult
+  case class AcronymExists(msg: String) extends AcronymCreationResult
 
-  case object Success extends UserRegisterResult
+  case object Success extends AcronymCreationResult
 
 }
 
-object UserRegisterValidator {
+object AcronymCreationValidator {
   private val ValidationOk = Right(())
-  val MinLoginLength = 3
+  val MinAcronymLength = 2
+  val MinSpaces = 1
 
-  def validate(login: String, email: String, password: String): Either[String, Unit] =
+  def validate(acronym: String, meaning: String): Either[String, Unit] =
     for {
-      _ <- validLogin(login.trim).right
-      _ <- validEmail(email.trim).right
-      _ <- validPassword(password.trim).right
+      _ <- validAcronym(acronym.trim).right
+      _ <- validMeaning(meaning.trim).right
     } yield ()
 
-  private def validLogin(login: String) = if (login.length >= MinLoginLength) ValidationOk else Left("Login is too short!")
+  private def validAcronym(acronym: String) = if (acronym.length >= MinAcronymLength) ValidationOk else Left("Acronym is too short!")
 
-  private val emailRegex = """^[a-zA-Z0-9\.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$""".r
-
-  private def validEmail(email: String) = if (emailRegex.findFirstMatchIn(email).isDefined) ValidationOk else Left("Invalid e-mail!")
-
-  private def validPassword(password: String) = if (password.nonEmpty) ValidationOk else Left("Password cannot be empty!")
+  private def validMeaning(meaning: String) = if (meaning.indexOf(' ') >= MinSpaces && meaning.nonEmpty) ValidationOk else Left("Invalid meaning!")
 }
 
